@@ -36,4 +36,3 @@ with open('./gtfs_static_data_ul/trips.csv') as file:
     for row in reader2:
         if row['route_id'] not in routes:
             routes[row['route_id']] = stopsOnTrip[row['trip_id']]
-            
