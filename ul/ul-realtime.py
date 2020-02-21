@@ -22,7 +22,8 @@ def requestVehiclePositions(sc):
     vehicleDict[feed.header.timestamp]=[]
     
     for entity in feed.entity:
-        if not entity.vehicle.trip.trip_id:       
+        print(entity)
+        if entity.vehicle.trip.trip_id:       
             vehicleDict[feed.header.timestamp].append({
                                 'vehicleID':entity.id,
                                 'trip':entity.vehicle.trip.trip_id,
@@ -36,3 +37,4 @@ def requestVehiclePositions(sc):
 
 s.enter(3, 1, requestVehiclePositions, (s,))
 s.run()
+
