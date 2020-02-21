@@ -37,4 +37,7 @@ with open('./gtfs_static_data_ul/trips.csv') as file:
         if row['route_id'] not in routes:
             routes[row['route_id']] = stopsOnTrip[row['trip_id']]
             
-                
+if '33010000131282059' in stopsOnTrip.keys():
+    print('yes')
+else:
+    print('no')
