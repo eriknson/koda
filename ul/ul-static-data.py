@@ -16,7 +16,7 @@ with open('./gtfs_static_data_ul/stops.csv') as file:
     reader = csv.DictReader(file)
     # Create dictionary key for each row in stops.csv with values on name, latitude and longitude
     for row in reader:
-        stops[row['stop_id']] = {'stop_name': row['stop_name'],
+        stops[row['stop_id']] = {'stop_id': row['stop_id'], 'stop_name': row['stop_name'],
                                  'stop_lat': row['stop_lat'], 'stop_lon': row['stop_lon']}
 
 
