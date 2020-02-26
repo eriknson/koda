@@ -11,7 +11,7 @@ from plotly.offline import plot
 
 import networkx as nx
 
-G = nx.random_geometric_graph(200, 0.125)
+G = nx.random_geometric_graph(200, 0.1)
 
 edge_x = []
 edge_y = []
