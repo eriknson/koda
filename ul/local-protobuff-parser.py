@@ -35,6 +35,3 @@ entities = {}
 
 for entity in feedEntitiesPerDay['20200130']:
     entities.setdefault(entity.id,[]).append(entity.trip_update)
-    
-for entry in entities:
-    print(entities[entry])
