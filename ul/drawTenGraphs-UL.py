@@ -5,33 +5,36 @@ Created on Wed Feb 26 12:36:13 2020
 
 @author: axelboman
 """
-
-# nx.path_graph(5,create_using=nx.DiGraph())
-
 import networkx as nx
 import matplotlib.pyplot as plt
-
 import plotly.graph_objects as go
 from plotly.offline import plot
-
-central_routes = ['9011001059300000', '9011001099500000', '9011003000600000', '9011003001100000', 
-                  '9011003010000000', '9011003010800000', '9011003011900000', '9011003080100000', 
-                  '9011003088000000', '9011003089600000', '9011003099900000']
 
 edgeList = []
 locDict = {}
 graphObject = nx.DiGraph()
 
+for x, routeID in enumerate(routeStations.keys()):
+    if x<15:
+        for (i,stop) in enumerate(routeStations[routeID]['stops']):
+            if i+1 < len(routeStations[routeID]['stops']):
+                edgeList.append((routeStations[routeID]['stops'][i]['stop_id'], 
+                         routeStations[routeID]['stops'][i+1]['stop_id']))
+
+
+for stop in graphObject.nodes():
+    print(stops[stop])
+
 # Create edgeList
-for routeID in routeStations.keys():
-    for (i,stop) in enumerate(routeStations[routeID]):
-        if i+1 < len(routeStations[routeID]):
-            edgeList.append((routeStations[routeID][i]['stop_id'], 
-                     routeStations[routeID][i+1]['stop_id']))
+#for routeID in routeStations.keys():
+#    for (i,stop) in enumerate(routeStations[routeID]['stops']):
+#        if i+1 < len(routeStations[routeID]['stops']):
+#            edgeList.append((routeStations[routeID]['stops'][i]['stop_id'], 
+#                     routeStations[routeID]['stops'][i+1]['stop_id']))
 
 # Create edges (and nodes) for each edge in list
 for edge in edgeList:
-    graphObject.add_edge(edge[0],edge[1])
+    graphObject.add_edge(edge[0],edge[1],weight=1)
 
 # Create locDict with key for each node and value as (lon,lat)
 for node in graphObject.nodes():
@@ -71,10 +74,6 @@ node_trace = go.Scatter(
     hoverinfo='text',
     marker=dict(
         showscale=True,
-        # colorscale options
-        #'Greys' | 'YlGnBu' | 'Greens' | 'YlOrRd' | 'Bluered' | 'RdBu' |
-        #'Reds' | 'Blues' | 'Picnic' | 'Rainbow' | 'Portland' | 'Jet' |
-        #'Hot' | 'Blackbody' | 'Earth' | 'Electric' | 'Viridis' |
         colorscale='YlGnBu',
         reversescale=True,
         color=[],
@@ -101,7 +100,7 @@ node_trace.text = node_text
 
 fig = go.Figure(data=[edge_trace, node_trace],
              layout=go.Layout(
-                title='<br>Network graph made with Python',
+                title='<br>Uppsala Public Transport Network',
                 titlefont_size=16,
                 showlegend=False,
                 hovermode='closest',
@@ -115,11 +114,6 @@ fig = go.Figure(data=[edge_trace, node_trace],
                 yaxis=dict(showgrid=False, zeroline=False, showticklabels=False))
                 )
 plot(fig, auto_open=True)
-    
-
-    
-#plt.figure(figsize=(10,15))
-#nx.draw(graphObject, with_labels=True)
 
 
     
