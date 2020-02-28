@@ -14,23 +14,23 @@ edgeList = []
 locDict = {}
 graphObject = nx.DiGraph()
 
-for x, routeID in enumerate(routeStations.keys()):
-    if x<15:
-        for (i,stop) in enumerate(routeStations[routeID]['stops']):
-            if i+1 < len(routeStations[routeID]['stops']):
-                edgeList.append((routeStations[routeID]['stops'][i]['stop_id'], 
-                         routeStations[routeID]['stops'][i+1]['stop_id']))
+#for x, routeID in enumerate(routeStations.keys()):
+#    if x<15:
+#        for (i,stop) in enumerate(routeStations[routeID]['stops']):
+#            if i+1 < len(routeStations[routeID]['stops']):
+#                edgeList.append((routeStations[routeID]['stops'][i]['stop_id'], 
+#                         routeStations[routeID]['stops'][i+1]['stop_id']))
 
 
 for stop in graphObject.nodes():
     print(stops[stop])
 
 # Create edgeList
-#for routeID in routeStations.keys():
-#    for (i,stop) in enumerate(routeStations[routeID]['stops']):
-#        if i+1 < len(routeStations[routeID]['stops']):
-#            edgeList.append((routeStations[routeID]['stops'][i]['stop_id'], 
-#                     routeStations[routeID]['stops'][i+1]['stop_id']))
+for routeID in routeStations.keys():
+    for (i,stop) in enumerate(routeStations[routeID]['stops']):
+        if i+1 < len(routeStations[routeID]['stops']):
+            edgeList.append((routeStations[routeID]['stops'][i]['stop_id'], 
+                     routeStations[routeID]['stops'][i+1]['stop_id']))
 
 # Create edges (and nodes) for each edge in list
 for edge in edgeList:

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-API key: 270394d8f8c74e5191d4f235e8dd925e
+API key: 270394d8f8c74e5191d4f235e8dd925ew
 """
 
 # -*- coding: utf-8 -*-
