@@ -1,10 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Created on Wed Feb 26 12:36:13 2020
 
-@author: axelboman
-"""
 import networkx as nx
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
@@ -13,14 +9,6 @@ from plotly.offline import plot
 edgeList = []
 locDict = {}
 graphObject = nx.DiGraph()
-
-#for x, routeID in enumerate(routeStations.keys()):
-#    if x<15:
-#        for (i,stop) in enumerate(routeStations[routeID]['stops']):
-#            if i+1 < len(routeStations[routeID]['stops']):
-#                edgeList.append((routeStations[routeID]['stops'][i]['stop_id'], 
-#                         routeStations[routeID]['stops'][i+1]['stop_id']))
-
 
 for stop in graphObject.nodes():
     print(stops[stop])

@@ -49,4 +49,3 @@ with open('./gtfs_static_data_ul/trips.csv') as file:
     # Creates dictionary with all station data per route
 for route in routeTrips:
     routeStations[route] = { 'stops': stopsOnTrip[routeTrips[route][0]] }
-    #routeStations.setdefault([route],[]).append(stopsOnTrip[routeTrips[route][0]])
