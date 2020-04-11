@@ -1,6 +1,5 @@
 node_modules
 .DS_Store
-/ul/notebooks/.ipynb_checkpoints
+ul/notebooks/.ipynb_checkpoints
 ul/slask
 ul/data
-ul/notebooks/UL_parse_historic_delays.ipynb
